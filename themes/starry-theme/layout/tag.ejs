@@ -1,0 +1,24 @@
+<div class="main-content meethigher-scroll">
+    <div class="tag-tags">
+        <% if(!is_tag()) { %>
+        <% page.title="标签云" %>
+            <span class="tags-title">标签云&nbsp;-&nbsp;共<%= site.tags.length %>个</span>
+            <ul class="tags-all clearFix">
+                <% let tags=site.tags.sort("name").data;for(let key in tags) { %>
+                    <li><a href="<%- url_for("/tags/") %><%= tags[key].name %>/"><%= tags[key].name %></a></li>
+                <% } %>
+            </ul>
+        <% } else { %>
+            <% let tagNum = 0;site.tags.each(function (tag) {
+                if (tag.name == page.tag.trim()) tagNum = tag.length;
+            })%>
+            <span class="tags-title">标签&nbsp;-&nbsp;<%= page.tag %>&nbsp;-&nbsp;共<%= tagNum %>篇</span>
+            <ul class="posts-all">
+                <% page.posts.each(function(post){ %>
+                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="<%- url_for("/") %><%= post.path %>"><%= post.title %></a></li>
+                <% }) %>
+            </ul>
+        <% } %>
+    </div>
+<%- partial("_partial/paginator") %>
+</div>

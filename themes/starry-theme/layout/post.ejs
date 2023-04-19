@@ -1,0 +1,31 @@
+<%- partial("_partial/mathjax.ejs") %>
+<div class="main-content">
+    <article class="post">
+        <div class="post-title">
+            <h2 class="title"><%= page.title %></h2>
+            <span class="subtitle"><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
+			<span class="subtitle">转载随意，文章会持续修订，请注明来源地址：<%=config.url%></span>
+        </div>
+        <div class="post-content blog-markdown">
+            <%- page.more %>
+        </div>
+        <div class="post-detail">
+            发布：<%- date(page.date, "YYYY-MM-DD HH:mm:ss") %><br>修改：<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><br>链接：<span
+                    class="shareUrl"><%- page.permalink %></span><br><% if (page.tags && page.tags.length){ %>标签：<span><% for(let i = 0;i < page.tags.length;i++){%><a href="<%- url_for(page.tags.data[i].path) %>"><%= page.tags.data[i].name %></a>&nbsp;<% } %></span><% } %>
+        </div>
+        <div class="post-btn">
+            <img no-lazy src="<%- url_for(theme.Icon.Payment) %>" style="display:none" alt="付款码">
+            <span class="post-donation-btn">打赏</span>
+            <span class="post-share-btn">分享</span>
+        </div>
+        <%- partial("_partial/comment.ejs") %>
+        <% if (theme.Footer.counter){ %>
+            <div class="footer">
+                <span id="container_site_uv">访客数<span id="value_site_uv">calculating</span>人</span>
+            </div>
+            <script>let requestUrl=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendPost(url,requestUrl){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result}};xhr.open("POST",url,true);xhr.setRequestHeader("origin-referer",document.referrer);xhr.send(requestUrl)}sendPost("<%= theme.Footer.server %>",requestUrl)</script>
+        <% } %>
+    </article>
+    <div class="outline" title="目录"><span class="fa fa-list-ul"></span></div>
+</div>
+<div class="pc-outline"><div>shift+ctrl+1可控制目录显示</div></div>

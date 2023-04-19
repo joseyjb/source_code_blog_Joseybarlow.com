@@ -1,0 +1,121 @@
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  //width:100%;
+  //height:100%;
+  //替换成下面这个，是为了解决iso滑动时，背景跟着屏幕跑的bug
+  width:100vw;
+  height:100vh;
+  background-color: @colorDiy;
+  z-index: -1;
+}
+
+.main-content {
+  margin: 50px auto 0;
+  overflow: hidden;
+  font-size: @font-size;
+  opacity:0;
+  a {
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      color: @colorFontHover !important;
+      border-color: @colorFontHover !important;
+      text-decoration: none !important;
+    }
+  }
+  .main-content-post {
+    .post {
+      border-bottom: 1px solid @blog-border-color;
+    }
+  }
+  .post {
+    padding: 20px;
+    .post-comment {
+      margin-top: 30px;
+      .instruction {
+        display:block;
+        text-align:center;
+      }
+      //gitalk评论
+      #gitalk-container {
+        .gt-meta {
+          border:none;
+        }
+      }
+    }
+
+    .post-title {
+      font-size: 21px;
+
+    }
+
+    .post-excerpt {
+      padding: 10px 0;
+    }
+
+    .post-content {
+      font-size: 16px;
+      padding-bottom: 10px;
+
+      a {
+        padding: 2px 9px;
+        border: 1px solid @colorFont;
+        border-radius: 10px;
+      }
+
+      .article-tag-list {
+        float: right;
+
+        .article-tag-list-item {
+          float: left;
+          padding: 0 1px;
+        }
+      }
+    }
+
+    .post-media {
+      font-size: 16px;
+      text-align: right;
+    }
+
+
+  }
+  .post-nav {
+    text-align: center;
+    margin-top:40px;
+    .page-nav {
+      display: inline-block;
+      .page-number, .extend.prev, .extend.next {
+        padding: 5px 15px;
+        border-radius: 10px;
+        margin: 0 5px;
+        border:1px solid @colorFont;
+        color: @colorFont;
+        float:left;
+      }
+      span.space {
+        float:left;
+      }
+      span.page-number {
+        color: @colorFontHover;
+        border-color:@colorFontHover;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .main-content {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .main-content {
+    width: 100%;
+  }
+}

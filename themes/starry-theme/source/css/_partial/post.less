@@ -1,0 +1,598 @@
+.footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+//下面是目录样式
+.yourclass {
+  overflow: hidden;
+}
+
+.pc-outline {
+  font-size: 17px;
+  padding: 0 10px;
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  width: 250px;
+  //background-color: orange;
+  height: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0 2px 19px 4px rgb(255 255 255 / 25%);
+  transition: all .5s;
+  -moz-user-select: none; /* Firefox私有属性 */
+  -webkit-user-select: none; /* WebKit内核私有属性 */
+  -ms-user-select: none; /* IE私有属性(IE10及以后) */
+  -khtml-user-select: none; /* Khtml内核私有属性 */
+  -o-user-select: none; /* Opera私有属性 */
+  user-select: none; /* CSS3属性 */
+
+
+  li {
+    list-style: none;
+    cursor: pointer;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pc-outline-link-active {
+  color: @blog-theme-color;
+}
+
+.pc-outline-active {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+
+.pc-outline-out {
+  border: 1px solid @blog-border-color;
+  height: 80%;
+}
+
+@media screen and (min-width: 1500px) {
+  .pc-outline {
+    display: block;
+  }
+
+  .outline {
+    display: none;
+  }
+}
+
+.outline {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  //background-color: @post-catalog-font-color;
+  background-color: @colorDiy;
+  border: 1px solid @blog-border-color;
+  color: @colorFont;
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  border-radius: 50%;
+  z-index: 1001;
+}
+
+.layui-layer-page {
+  background-color: #13172f !important;
+  border: 1px solid #fff !important;
+  border-radius: 10px !important;
+}
+
+.layui-layer-title {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.layui-layer-content ul {
+  list-style: none;
+}
+
+.layui-layer-dialog {
+  background-color: #13172F !important;
+  border: 1px solid #fff !important;
+  border-radius: 10px !important;
+}
+
+.catalog-container {
+  padding: 5px 10px;
+  font-size: 16px;
+
+  ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    cursor: pointer;
+  }
+}
+
+// 太别扭了了，去掉下划线样式
+//.catalog-container ul li a {
+//  text-decoration: underline;
+//}
+
+//上面是目录样式
+.post-title {
+  .title {
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: 4px;
+  }
+
+  .subtitle {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    margin: 8px 0 10px;
+  }
+}
+
+.post-btn {
+  text-align: center;
+  margin-top: 30px;
+
+  .post-donation-btn, .post-share-btn {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+
+  .post-donation-btn {
+    background-color: @blog-font-color;
+  }
+
+  .post-share-btn {
+    background-color: @comment-font-color;
+  }
+}
+
+.post-detail {
+  color: @blog-theme-color;
+  text-align: left;
+  font-size: 12px;
+
+  a {
+    color: @blog-theme-color;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .post-media2 {
+    display: none;
+  }
+}
+
+.blog-markdown {
+  font-size: @font-size !important;
+
+  .headerlink, a {
+    border: 0 !important;
+    padding: 0 !important;
+  }
+
+  /*设置h标签*/
+  .postSize(@fontSize) {
+    font-size: @fontSize !important;
+    font-style: italic;
+    text-align: center;
+    //锚点定位被header盖住问题padding-top: 50px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid @blog-border-color;
+    transition: padding-left .5s;
+  }
+
+  h6 {
+    .postSize(18px);
+  }
+
+  h5 {
+    .postSize(19px);
+  }
+
+  h4 {
+    .postSize(20px);
+  }
+
+  h3 {
+    .postSize(21px);
+  }
+
+  h2 {
+    .postSize(22px);
+
+  }
+
+  h1 {
+    .postSize(23px);
+  }
+
+
+  h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    padding-left: 60px;
+  }
+
+  /*设置无序有序标签*/
+
+  ul, ol {
+    margin: 12px auto;
+    padding-left: 30px;
+
+    li {
+      margin: 3px 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    li {
+      > ul {
+        list-style-type: circle;
+
+        li {
+          ul {
+            list-style-type: square;
+          }
+        }
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+
+    li {
+      > ul {
+        list-style-type: circle;
+
+        li {
+          ul {
+            list-style-type: square;
+          }
+        }
+      }
+    }
+  }
+
+  /*设置引用标签*/
+
+  blockquote {
+    border: none;
+    color: @post-blockquote-border-color;
+    margin: 20px 0;
+    padding: 10px;
+    min-height: 20px;
+    line-height: inherit;
+    border-left: 8px solid @post-blockquote-border-color;
+    border-right: 8px solid @post-blockquote-border-color;
+    background: rgba(36, 134, 115, 0.10);
+
+    p {
+      //text-indent: unset;
+      margin: unset;
+    }
+  }
+
+  /*设置加粗倾斜*/
+
+  strong {
+    margin: 0 3px;
+  }
+
+  em {
+    padding-right: 3px;
+  }
+
+  /*设置图片*/
+  @media screen and (min-width: 960px) {
+    img {
+      max-width: 920px;
+      display: block;
+      margin: 12px auto;
+      border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 12px auto;
+      border-radius: 10px;
+    }
+  }
+  /*设置表格*/
+
+  > table {
+    font-size: 16px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    //border: 1px solid @post-table-border-color;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    border-radius: 3px;
+    overflow-x:auto;
+    -ms-overflow-x: auto;
+    display: block;
+
+    &::-webkit-scrollbar { /*滚动条整体样式*/
+      width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+      border-radius: 10px;
+      background-color: @colorDiy;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
+
+    &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background: #EDEDED;
+    }
+
+
+    th {
+      font-family: inherit;
+      font-size: inherit;
+      background-color: @post-table-thead-bg-color !important;
+      white-space: nowrap;
+      font-weight: 600;
+      border: 1px solid @post-table-border-color !important;
+      padding: 8px 16px !important;
+    }
+
+    td {
+      border: 1px solid @post-table-border-color !important;
+      padding: 8px 16px !important;
+    }
+  }
+
+  /*设置超链接*/
+
+  a {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: @colorFontHover !important;
+    background-color: transparent !important;
+  }
+
+  /*设置段落格式*/
+
+  p {
+    margin: 12px auto;
+    //text-indent: 34px;//段落缩进，2个字符
+    letter-spacing: 1px; //水平间距，默认是0
+  }
+
+  /*设置关键字*/
+
+  code {
+    padding: 1px 4px;
+    margin: 0 3px;
+    border-radius: 3px !important;
+    //border: 1px dashed @post-cnblogs-code-font-color;
+    background-color: #f3f3f3;
+    color: #00769A;
+    font-weight: bolder;
+  }
+
+  /*设置代码块*/
+
+  figure.highlight {
+    background-color: @post-table-thead-bg-color;
+    //background-color: black;
+    padding: 30px 0 10px 0;
+    //border: 1px solid @post-table-border-color;
+    border-radius: 5px;
+    position: relative;
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+
+    span.language {
+      display: none;
+      //position: absolute;
+      //top: 0;
+      //right: 0;
+      //height: 28px;
+      //line-height: 28px;
+      //padding-right: 5px;
+      //border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      position: relative;
+
+      .line {
+        font-family: Consolas, monospace, serif !important;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+
+        .comment,
+        .quote {
+          color: #5c6370;
+          font-style: italic;
+        }
+
+        .doctag,
+        .keyword,
+        .formula {
+          color: #c678dd;
+        }
+
+        .section,
+        .name,
+        .selector-tag,
+        .deletion,
+        .subst {
+          color: #e06c75;
+        }
+
+        .literal {
+          color: #56b6c2;
+        }
+
+        .string,
+        .regexp,
+        .addition,
+        .attribute,
+        .meta-string {
+          color: #98c379;
+        }
+
+        .built_in,
+        .class .title {
+          color: #e6c07b;
+        }
+
+        .attr,
+        .variable,
+        .template-variable,
+        .type,
+        .selector-class,
+        .selector-attr,
+        .selector-pseudo,
+        .number {
+          color: #d19a66;
+        }
+
+        .symbol,
+        .bullet,
+        .link,
+        .meta,
+        .selector-id,
+        .title {
+          color: #61aeee;
+        }
+
+        .emphasis {
+          font-style: italic;
+        }
+
+        .strong {
+          font-weight: bold;
+        }
+
+        .link {
+          text-decoration: underline;
+        }
+      }
+
+      .gutter {
+        width: 30px;
+        -moz-user-select: none; /* Firefox私有属性 */
+        -webkit-user-select: none; /* WebKit内核私有属性 */
+        -ms-user-select: none; /* IE私有属性(IE10及以后) */
+        -khtml-user-select: none; /* Khtml内核私有属性 */
+        -o-user-select: none; /* Opera私有属性 */
+        user-select: none; /* CSS3属性 */
+
+        pre {
+          padding-left: 8px;
+          text-align: right;
+          color: @post-table-border-color;
+        }
+      }
+
+      .code {
+        pre {
+          padding-right: 8px;
+          padding-left: 8px;
+          width: 100%;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        min-width: 100%;
+        display: block;
+        height: 30px;
+        background-color: @post-table-border-color;
+        content: ""
+      }
+
+      tbody {
+        //添加这个是为了仅点击$::after时复制剪贴板，但是会造成tbody下焦点失去的问题，无法通过自由复制，放弃该方法。采用通过js添加一个btn-copy
+        //pointer-events: none;
+
+        //&::after,
+        .btn-copy {
+          position: absolute;
+          top: -29px;
+          height: 26px;
+          line-height: 26px;
+          left: 0;
+          padding: 0 5px 0 5px;
+          border-radius: 5px;
+          cursor: pointer;
+          pointer-events: all;
+        }
+
+        .unclick {
+          box-shadow: @blog-bg-color 1px 1px 2px 2px;
+        }
+
+        .click {
+          box-shadow: @blog-bg-color 1px 1px 0px 0px;
+        }
+
+        .before {
+          opacity: 0;
+          position: absolute;
+          top: -28px;
+          height: 26px;
+          line-height: 26px;
+          left: 50px;
+          padding: 0 5px 0 5px;
+          border-radius: 5px;
+          animation: copy 1.5s;
+        }
+
+        @keyframes copy {
+          0% {
+            opacity: 0
+          }
+          50% {
+            opacity: 1
+          }
+          100% {
+            opacity: 0
+          }
+        }
+      }
+    }
+
+    &::-webkit-scrollbar { /*滚动条整体样式*/
+      width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+      border-radius: 10px;
+      background-color: @colorDiy;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
+
+    &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background: #EDEDED;
+    }
+  }
+}

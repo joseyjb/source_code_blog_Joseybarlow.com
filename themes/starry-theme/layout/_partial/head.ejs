@@ -1,0 +1,33 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%
+    let title = page.title;
+    let description=page.excerpt;
+    let keywords=config.keywords;
+    if (is_archive()) {
+        title = theme.Menu.Archive.text;
+    } else if (is_tag()) {
+        title = theme.Menu.Tag.text + "-" + page.tag;
+    }
+    if (!title) {
+        title = config.author + "的个人博客";
+    }else{
+        keywords=title+","+keywords;
+    }
+    if(!description){
+        description=config.description;
+    }else{
+        description = description.replace(/<p>(.*?)<\/p>/g, "$1").replace(/[\r\n]/g, "");
+    }
+    %>
+    <meta name="keywords" content="<%= keywords %>"/>
+    <meta name="description" content="<%= description %>"/>
+    <title><%= title %></title>
+    <%- favicon_tag(theme.Icon.Favicon) %>
+    <%- css("css/meethigher-font.css") %>
+    <%- css('css/index.css') %>
+    <%- css('css/viewer.min.css') %>
+</head>

@@ -4,17 +4,18 @@
 
 # Site
 title: hexo
-subtitle: 
+subtitle: josey barlow's blog
 description: ''
 keywords:
 author: 
-language:
+language: english
 timezone: 'central'
+meta_generator: false
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://joseybarlow.com
-permalink: :year/:month/:day/:title/
+permalink: :year/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -40,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -103,3 +104,61 @@ theme: starry-theme
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# 站内搜索功能
+# 安装插件npm install hexo-generator-searchdb --save
+search:
+  path: joseyjb.json
+  field: post
+  content: true
+  format: raw
+
+# hexo-neat
+# 安装插件npm install hexo-neat --save
+# 博文压缩
+neat_enable: false
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: false
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+
+
+gitalk:
+  enable: true
+  githubID: joseyjb
+  repo: joseyjb.github.io #在github上建一个public的库，不一定是github.io，也可以是comments，总之随意了
+  owner: joseyjb
+  ClientID: 84249
+  ClientSecret: a032ae7096
+  adminUser: joseyjb #指定可初始化评论账户
+  distractionFreeMode: true #类似于Facebook的分散注意力模式
+
+lazyload:
+  enable: true
+  onlypost: false
+  # loadingImg: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC
+  loadingImg: /blog/images/loading.svg
+  isSPA: false
+# 支持数学公式
+mathjax: 
+  enable: true
+  # http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+# 站点地图
+sitemap:
+  path: 
+    - sitemap.xml
+  template: ./sitemap-mock.xml
